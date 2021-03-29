@@ -12,7 +12,7 @@ requirements:
 baseCommand: ["samtools", "index"]
 
 inputs:
-  - alignment_bam
+  - id: alignment_bam
     type: File
     inputBinding:
       position: 3

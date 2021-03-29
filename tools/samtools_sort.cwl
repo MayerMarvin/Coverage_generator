@@ -17,7 +17,7 @@ arguments:
     position: 5
 
 inputs:
-  - alignment_bam:
+  - id: alignment_bam
     type: File
     inputBinding:
       position: 3
@@ -27,7 +27,7 @@ inputs:
     type: Directory
 
 outputs:
-  alignment_bam_sorted:
+  alignment_sorted_bam:
     type: File
     outputBinding:
       glob: $(inputs.output_dir)/(inputs.sample_ID)/alignment_sorted.bam

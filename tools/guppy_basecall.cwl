@@ -21,7 +21,7 @@ inputs:
       prefix: "-i"
   - id: basecalled_output_dir
     type: Directory
-  - id: sample_ID:
+  - id: sample_ID
     type: string
   - id: guppy_config
     type: string

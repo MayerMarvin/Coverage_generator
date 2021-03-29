@@ -17,7 +17,7 @@ arguments:
     position: 5
 
 inputs:
-  - id alignment_sam
+  - id: alignment_sam
     type: File
     inputBinding:
       position: 3

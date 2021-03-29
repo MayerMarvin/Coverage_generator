@@ -14,9 +14,9 @@ inputs:
     type: int
   - id: basecalled_output_dir
     type: Directory
-  - id: output_dir:
+  - id: output_dir
     type: Directory
-  - id: guppy_config:
+  - id: guppy_config
     type: string
 
 
@@ -28,7 +28,7 @@ steps:
           source: sample_ID
         - id: in_fast5_dir
           source: in_fast5_dir
-        - id: basecalled_output_dir:
+        - id: basecalled_output_dir
           source: basecalled_output_dir
         - id: guppy_config
           source: guppy_config
@@ -43,7 +43,7 @@ steps:
           source: sample_ID
         - id: sequencing_summary
           source: guppy_basecall/sequencing_summary
-        - id: output_dir:
+        - id: output_dir
           source: output_dir
       out:
         - id: pycoqc_output_html
@@ -57,7 +57,7 @@ steps:
           source: reference
         - id: basecalled_dir
           source: guppy_basecall/basecalled_dir
-        - id: output_dir:
+        - id: output_dir
           source: output_dir
       out:
         - id: alignment_sam
@@ -69,7 +69,7 @@ steps:
           source: minimap2_alignment/alignment_sam
         - id: sample_ID
           source: sample_ID
-        - id: output_dir:
+        - id: output_dir
           source: output_dir
       out:
         - id: alignment_bam
@@ -81,7 +81,7 @@ steps:
           source: samtools_bam/alignment_bam
         - id: sample_ID
           source: sample_ID
-        - id: output_dir:
+        - id: output_dir
           source: output_dir
       out:
         - id: alignment_sorted_bam
@@ -93,7 +93,7 @@ steps:
           source: samtools_sort/alignment_sorted_bam
         - id: sample_ID
           source: sample_ID
-        - id: output_dir:
+        - id: output_dir
           source: output_dir
       out:
         - id: alignment_bam_bai
@@ -107,7 +107,7 @@ steps:
           source: samtools_index/alignment_bam_bai
         - id: sample_ID
           source: sample_ID
-        - id: output_dir:
+        - id: output_dir
           source: output_dir
       out:
         - id: coverage_bigwig
