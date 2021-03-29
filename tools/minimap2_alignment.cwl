@@ -17,7 +17,7 @@ arguments:
     position: 2
   - valueFrom: ">"
     position: 5
-  - valueFrom: $(inputs.output_dir)/(inputs.ample_ID)/aligment.sam
+  - valueFrom: $(inputs.output_dir)/aligment.sam
     position: 6
 
 inputs:
@@ -38,4 +38,4 @@ outputs:
   - id: alignment_sam
     type: File
     outputBinding:
-      glob: $(inputs.output_dir)/(inputs.ample_ID)/aligment.sam
+      glob: $(inputs.output_dir)/aligment.sam

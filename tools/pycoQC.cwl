@@ -10,7 +10,7 @@ requirements:
 
 baseCommand: ["pycoQC"]
 arguments:
-  - valueFrom: $(inputs.output_dir)/(inputs.sample_ID)/(inputs.sample_ID)_pycoQC_output.html
+  - valueFrom: $(inputs.output_dir)/(inputs.sample_ID)_pycoQC_output.html
     prefix: "-o"
 inputs:
   - id: sample_ID
@@ -26,4 +26,4 @@ outputs:
   - id: pycoqc_output_html
     type: File
     outputBinding:
-      glob: $(inputs.output_dir)/(inputs.sample_ID)/(inputs.sample_ID)_pycoQC_output.html
+      glob: $(inputs.output_dir)/(inputs.sample_ID)_pycoQC_output.html

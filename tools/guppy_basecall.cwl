@@ -2,17 +2,19 @@ cwlVersion: v1.0
 class: CommandLineTool
 requirements:
   InlineJavascriptRequirement: {}
-  DockerRequirement:
-    dockerPull: genomicpariscentre/guppy
+#  DockerRequirement:
+#    dockerPull: genomicpariscentre/guppy
 
 baseCommand: ["guppy_basecaller"]
 arguments:
   - valueFrom: "auto"
     prefix: "-x"
     position: 4
-  - valueFrom: $(inputs.basecalled_output_dir)/(inputs.ample_ID)/
+  - valueFrom: $(inputs.basecalled_output_dir)/(inputs.sample_ID)/
     prefix: "-s"
     position: 2
+  - valueFrom: "--disable_pings"
+    position: 5
 inputs:
   - id: in_fast5_dir
     type: Directory
@@ -33,8 +35,8 @@ outputs:
   - id: basecalled_dir
     type: Directory
     outputBinding:
-      glob: $(inputs.basecalled_output_dir)/(inputs.ample_ID)/
+      glob: $(inputs.basecalled_output_dir)/(inputs.sample_ID)/
   - id: sequencing_summary
     type: File
     outputBinding:
-      glob: $(inputs.basecalled_output_dir)/(inputs.ample_ID)/sequencing_summary.txt
+      glob: $(inputs.basecalled_output_dir)/(inputs.sample_ID)/sequencing_summary.txt
