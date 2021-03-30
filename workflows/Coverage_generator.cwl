@@ -24,8 +24,6 @@ steps:
     - id: guppy_basecall
       run: "../tools/guppy_basecall.cwl"
       in:
-        - id: sample_ID
-          source: sample_ID
         - id: in_fast5_dir
           source: in_fast5_dir
         - id: basecalled_output_dir
@@ -36,23 +34,19 @@ steps:
         - id: basecalled_dir
         - id: sequencing_summary
 
-    - id: pycoqc
-      run: "../tools/pycoQC.cwl"
-      in:
-        - id: sample_ID
-          source: sample_ID
-        - id: sequencing_summary
-          source: guppy_basecall/sequencing_summary
-        - id: output_dir
-          source: output_dir
-      out:
-        - id: pycoqc_output_html
+#    - id: pycoqc
+#      run: "../tools/pycoQC.cwl"
+#      in:
+#        - id: sequencing_summary
+#          source: guppy_basecall/sequencing_summary
+#        - id: output_dir
+#          source: output_dir
+#      out:
+#        - id: pycoqc_output_html
 
     - id: minimap2_alignment
       run: "../tools/minimap2_alignment.cwl"
       in:
-        - id: sample_ID
-          source: sample_ID
         - id: reference
           source: reference
         - id: basecalled_dir
@@ -114,9 +108,12 @@ steps:
 
 
 outputs:
-  - id: pycoqc_output
-    type: File
-    outputSource: pycoqc/pycoqc_output_html
+#  - id: pycoqc_output
+#    type: File
+#    outputSource: pycoqc/pycoqc_output_html
   - id: coverage_bigwig
     type: File
     outputSource: bamCoverage/coverage_bigwig
+  - id: alignment_sam
+    type: File
+    outputSource: minimap2_alignment/alignment_sam
