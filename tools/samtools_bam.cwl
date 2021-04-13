@@ -13,7 +13,7 @@ baseCommand: ["samtools", "view", "-bS"]
 arguments:
   - valueFrom: ">"
     position: 4
-  - valueFrom: $(inputs.output_dir)/(inputs.sample_ID)/alignment.bam
+  - valueFrom: $(inputs.output_dir.path)/alignment.bam
     position: 5
 
 inputs:
@@ -30,4 +30,4 @@ outputs:
   - id: alignment_bam
     type: File
     outputBinding:
-      glob: $(inputs.output_dir)/(inputs.sample_ID)/alignment.bam
+      glob: $(inputs.output_dir.path)/alignment.bam

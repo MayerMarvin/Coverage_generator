@@ -2,12 +2,14 @@ cwlVersion: v1.0
 class: CommandLineTool
 requirements:
   InlineJavascriptRequirement: {}
+  ShellCommandRequirement: {}
 #  DockerRequirement:
 #    dockerPull: nanozoo/minimap2
 #    dockerOutputDirectory: /storage/data2/cwl_test/alignment
   InitialWorkDirRequirement:
     listing:
-      - $(inputs.output_dir)
+      - entry: $(inputs.output_dir)
+        writable: true
 
 baseCommand: ["/home/nanopore/anaconda3/envs/uncalled-env/bin/minimap2"]
 arguments:
@@ -16,9 +18,9 @@ arguments:
     position: 1
   - valueFrom: "-L"
     position: 2
-#  - valueFrom: ">"
-#    position: 5
-#    shellQuote: False
+  - valueFrom: ">"
+    position: 5
+    shellQuote: False
   - valueFrom: $(inputs.output_dir.path)/alignment.sam
     position: 6
 
@@ -35,11 +37,21 @@ inputs:
     type: Directory
 
 outputs:
-#  alignment_sam
-#    type: stdout
-#stdout: $(inputs.output_dir.path)/alignment.sam
-
   - id: alignment_sam
     type: File
     outputBinding:
       glob: $(inputs.output_dir.path)/alignment.sam
+
+#  alignment_sam: 
+#    type: stdout
+
+#stdout: /storage/data2/ashish_nanopore_data/cwl_test/alignment/HCT116/alignment.sam
+
+#  alignment_sam
+#    type: stdout
+#stdout: $(inputs.output_dir.path)/alignment.sam
+
+#  - id: alignment_sam
+#    type: File
+#    outputBinding:
+#      glob: "$(inputs.output_dir.path)/alignment.sam"
