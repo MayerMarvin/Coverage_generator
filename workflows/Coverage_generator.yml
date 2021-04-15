@@ -5,7 +5,6 @@ in_fast5_dir:
 reference:
   class: File
   path: /home/nanopore/mayerma/REF_hg19/hg19.fa
-threads: 1
 basecalled_output_dir:
   class: Directory
   path: /storage/data2/cwl_test/nanopore_basecalled/HCT116
