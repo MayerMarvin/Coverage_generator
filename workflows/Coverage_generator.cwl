@@ -10,8 +10,6 @@ inputs:
     type: Directory
   - id: reference
     type: File
-#  - id: threads
-#    type: int
   - id: basecalled_output_dir
     type: Directory
   - id: output_dir
