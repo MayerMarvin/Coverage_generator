@@ -25,4 +25,3 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_dir.path)/pycoQC_output.html
-#"*.html"
