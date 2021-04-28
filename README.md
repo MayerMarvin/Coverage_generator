@@ -2,4 +2,4 @@
 CWL pipeline for basecalling, alignment and production of coverage.bigwig files from Oxford Nanopore Sequencing data
 
 
-![Visualization](coverage_generator_virsualization.png)
+![Workflow Visualization](https://github.com/MayerMarvin/Coverage_generator/blob/main/coverage_generator_visualization.png)
