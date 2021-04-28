@@ -3,15 +3,16 @@ class: CommandLineTool
 requirements:
   InlineJavascriptRequirement: {}
   ShellCommandRequirement: {}
-#  DockerRequirement:
-#    dockerPull: nanozoo/minimap2
-#    dockerOutputDirectory: /storage/data2/cwl_test/alignment
+  DockerRequirement:
+    dockerPull: nanozoo/minimap2
+    dockerOutputDirectory: /storage/data2/cwl_test/alignment
   InitialWorkDirRequirement:
     listing:
       - entry: $(inputs.output_dir)
         writable: true
 
-baseCommand: ["/home/nanopore/anaconda3/envs/uncalled-env/bin/minimap2"]
+baseCommand: ["minimap2"]
+#["/home/nanopore/anaconda3/envs/uncalled-env/bin/minimap2"]
 arguments:
   - valueFrom: "map-ont"
     prefix: "-ax"
@@ -41,17 +42,3 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_dir.path)/alignment.sam
-
-#  alignment_sam: 
-#    type: stdout
-
-#stdout: /storage/data2/ashish_nanopore_data/cwl_test/alignment/HCT116/alignment.sam
-
-#  alignment_sam
-#    type: stdout
-#stdout: $(inputs.output_dir.path)/alignment.sam
-
-#  - id: alignment_sam
-#    type: File
-#    outputBinding:
-#      glob: "$(inputs.output_dir.path)/alignment.sam"
